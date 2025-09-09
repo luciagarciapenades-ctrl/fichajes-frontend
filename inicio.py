@@ -1,7 +1,17 @@
 import streamlit as st
 #import login as login
 import supabase_login_shim as auth
-import login as ui  
+from pathlib import Path
+import sys, os
+
+ROOT = Path(__file__).parent
+if str(ROOT) not in sys.path:  # garantiza que /usr/src/app está en el path
+    sys.path.insert(0, str(ROOT))
+
+try:
+    import login as ui            # tu archivo login.py (si está disponible)
+except ModuleNotFoundError:
+    import supabase_login_shim as ui
 
 st.set_page_config(page_title="Fichajes", page_icon="🕒", layout="centered")
 
