@@ -1,7 +1,6 @@
 import streamlit as st
 import pandas as pd
 from datetime import datetime, timezone, timedelta
-import os
 import sqlite3
 import hmac, hashlib, base64, time
 
@@ -12,7 +11,7 @@ ROOT = os.path.dirname(os.path.dirname(__file__))  # .../app
 if ROOT not in sys.path:
     sys.path.insert(0, ROOT)
 import supabase_login_shim as auth
-import login as ui
+import ui_pages as ui
 from api_client import post_fichaje as _post_fichaje, get_fichajes as _get_fichajes
 from streamlit_geolocation import streamlit_geolocation
 from geopy.distance import geodesic
@@ -269,4 +268,5 @@ if not df_hist.empty:
         "fuente": "Método",
     })
 st.dataframe(df_hist, use_container_width=True)
+
 
