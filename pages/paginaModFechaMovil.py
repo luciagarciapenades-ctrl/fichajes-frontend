@@ -5,6 +5,10 @@ import time as _time
 import pandas as pd
 import streamlit as st
 #import login as login
+import os, sys
+ROOT = os.path.dirname(os.path.dirname(__file__))  # .../app
+if ROOT not in sys.path:
+    sys.path.insert(0, ROOT)
 import supabase_login_shim as auth
 import login as ui
 from api_client import get_fichajes
@@ -196,6 +200,7 @@ nota = st.text_input("Motivo / observación (opcional)")
 # donde está el botón "Guardar par Entrada/Salida"
 if st.button("Guardar par Entrada/Salida", type="primary", disabled=True):
     st.info("El guardado manual se habilitará cuando añadamos el endpoint /fichajes/manual en el backend.")
+
 
 
 
