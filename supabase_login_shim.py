@@ -27,7 +27,7 @@ def generarLogin(_archivo:str=""):
             # Para tu app usamos el email como 'usuario' (lo que esperaban tus pantallas)
             st.session_state["usuario"] = res.user.email
             st.success("Sesión iniciada")
-            st.rerun()
+            st.switch_page(go_to)
         except Exception as e:
             st.error(f"Error al iniciar sesión: {e}")
             st.stop()
@@ -39,3 +39,4 @@ def generarLogin(_archivo:str=""):
             st.error(f"Error al crear cuenta: {e}")
     if not st.session_state.get("user_id"):
         st.stop()
+
